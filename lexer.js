@@ -1,8 +1,8 @@
 import { MeowError } from './stdlib.js'
 
 export const TOKENS = {
-  LeftParen: 'M',
-  RightParen: 'W',
+  LeftParen: 'LeftParen',
+  RightParen: 'RightParen',
   LeftBrace: 'LeftBrace',
   RightBrace: 'RightBrace',
   LeftBracket: 'LeftBracket',
@@ -31,16 +31,16 @@ export const TOKENS = {
 }
 
 export const KEYWORDS = {
-  prepare: 'prepare',
-  as: 'as', // Variables
+  meow: 'meow',
+  meoow: 'meoow', // Variables
   brush: 'brush',
   prep: 'prep',
   has: 'has', // Structs
   sketch: 'sketch',
   needs: 'needs',
   finished: 'finished', // Functions
-  loop: 'loop',
-  through: 'through',
+  meeow: 'meeow',
+  meeeow: 'meeeow',
   while: 'while', // Loops
   if: 'if',
   elif: 'elif',
@@ -125,25 +125,39 @@ export class Lexer {
             new Token(TOKENS.Equiv, '==', '==', this.line, this.column)
           )
       }
-      case 'M': {
+      case '(': {
         return this.tokens.push(
-          new Token(TOKENS.LeftParen, 'M', 'M', this.line, this.column)
+          new Token(TOKENS.LeftParen, '(', '(', this.line, this.column)
         )
       }
-      case 'W': {
+      case ')': {
         return this.tokens.push(
-          new Token(TOKENS.RightParen, 'W', 'W', this.line, this.column)
+          new Token(TOKENS.RightParen, ')', ')', this.line, this.column)
         )
       }
-      case '{': {
-        return this.tokens.push(
-          new Token(TOKENS.LeftBrace, '{', '{', this.line, this.column)
-        )
+      case "h": {
+        if (this.match('a')){
+          if (this.match('i')) {
+            if (this.match('i')) {
+              return this.tokens.push(
+                new Token(TOKENS.LeftBrace, "haii", "haii", this.line, this.column)
+              )
+            }
+          }
+        }
+        return
       }
-      case '}': {
-        return this.tokens.push(
-          new Token(TOKENS.RightBrace, '}', '}', this.line, this.column)
-        )
+      case "b": {
+        if (this.match('y')){
+          if (this.match('e')) {
+            if (this.match('e')) {
+              return this.tokens.push(
+                new Token(TOKENS.RightBrace, "byee", "byee", this.line, this.column)
+              )
+            }
+          }
+        }
+        return
       }
       case '[': {
         return this.tokens.push(

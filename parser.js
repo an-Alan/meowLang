@@ -226,9 +226,9 @@ export class Parser{
         }
 
         const forStmt = () => {
-            this.eatKeyword('loop')
+            this.eatKeyword('meeow')
             const id = this.eat(TOKENS.Identifier).value
-            this.eatKeyword('through')
+            this.eatKeyword('meeeow')
 
             this.eat(TOKENS.LeftParen)
             const range = this.exprList()
@@ -237,8 +237,8 @@ export class Parser{
                     range[range.length - 1],
                     'Expected (start,end) range but received more arguments than expected'
             )
-
             this.eat(TOKENS.RightParen)
+
             this.eat(TOKENS.LeftBrace)
             let body = []
             while (this.peekType() != TOKENS.RightBrace) body.push(this.stmt())
@@ -285,16 +285,16 @@ export class Parser{
         }
 
         const assignStmt = () => {
-            this.eatKeyword('prepare')
+            this.eatKeyword('meow')
             const name = this.eat(TOKENS.Identifier).value
             if (this.peekType() == TOKENS.Period) {
                 this.eat(TOKENS.Period)
                 const property = this.eat(TOKENS.Identifier).value
-                this.eatKeyword('as')
+                this.eatKeyword('meoow')
                 const value = this.expr()
                 return new Ast.Set(name, property, value)
             }
-            this.eatKeyword('as')
+            this.eatKeyword('meoow')
             const value = this.expr()
             return new Ast.Var(name, value)
         }
@@ -318,7 +318,7 @@ export class Parser{
                     case 'finished': {
                         return returnStmt()
                     }
-                    case 'loop': {
+                    case 'meeow': {
                         return forStmt()
                     }
                     case 'while': {
@@ -327,7 +327,7 @@ export class Parser{
                     case 'if': {
                         return conditionalStmt('if')
                     }
-                    case 'prepare': {
+                    case 'meow': {
                         return assignStmt()
                     }
                     case 'brush': {
