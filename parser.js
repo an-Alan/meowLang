@@ -111,7 +111,7 @@ export class Parser{
         let token = this.eat(this.peekType())
         switch (token.type){
             case TOKENS.Keyword: {
-                if (token.value == 'prep') {
+                if (token.value == 'meeeoow') {
                     const id = this.eat(TOKENS.Identifier).value
                     
                     this.eat(TOKENS.LeftParen)
@@ -201,17 +201,17 @@ export class Parser{
 
     stmt() {
         const returnStmt = () => {
-            this.eatKeyword('finished')
+            this.eatKeyword('prrr')
             return new Ast.Return(this.expr())
         }
 
         const funcStmt = () => {
-            this.eatKeyword('sketch')
+            this.eatKeyword('mmeow')
             const name = this.eat(TOKENS.Identifier).value
 
             let params = []
-            if (this.peekKeyword('needs')) {
-                this.eatKeyword('needs')
+            if (this.peekKeyword('mmmeow')) {
+                this.eatKeyword('mmmeow')
                 this.eat(TOKENS.LeftParen)
                 params = this.identifierList()
                 this.eat(TOKENS.RightParen)
@@ -248,7 +248,7 @@ export class Parser{
         }
 
         const whileStmt = () => {
-            this.eatKeyword('while')
+            this.eatKeyword('mmeeooww')
 
             this.eat(TOKENS.LeftParen)
             const condition = this.expr()
@@ -300,9 +300,9 @@ export class Parser{
         }
 
         const structStmt = () => {
-            this.eatKeyword('brush')
+            this.eatKeyword('meeoow')
             const name = this.eat(TOKENS.Identifier).value
-            this.eatKeyword('has')
+            this.eatKeyword('meeooow')
             this.eat(TOKENS.LeftBrace)
             const members = this.identifierList()
             this.eat(TOKENS.RightBrace)
@@ -312,16 +312,16 @@ export class Parser{
         switch (next.type) {
             case TOKENS.Keyword: {
                 switch (next.value) {
-                    case 'sketch': {
+                    case 'mmeow': {
                         return funcStmt()
                     }
-                    case 'finished': {
+                    case 'prrr': {
                         return returnStmt()
                     }
                     case 'meeow': {
                         return forStmt()
                     }
-                    case 'while': {
+                    case 'mmeeooww': {
                         return whileStmt()
                     }
                     case 'if': {
@@ -330,7 +330,7 @@ export class Parser{
                     case 'meow': {
                         return assignStmt()
                     }
-                    case 'brush': {
+                    case 'meeoow': {
                         return structStmt()
                     }
                 }

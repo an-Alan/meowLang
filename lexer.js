@@ -33,15 +33,15 @@ export const TOKENS = {
 export const KEYWORDS = {
   meow: 'meow',
   meoow: 'meoow', // Variables
-  brush: 'brush',
-  prep: 'prep',
-  has: 'has', // Structs
-  sketch: 'sketch',
-  needs: 'needs',
-  finished: 'finished', // Functions
+  meeoow: 'meeoow',
+  meeeoow: 'meeeoow',
+  meeooow: 'meeooow', // Structs
+  mmeow: 'mmeow',
+  mmmeow: 'mmmeow',
+  prrr: 'prrr', // Functions
   meeow: 'meeow',
   meeeow: 'meeeow',
-  while: 'while', // Loops
+  mmeeooww: 'mmeeooww', // Loops
   if: 'if',
   elif: 'elif',
   else: 'else' // Conditionals
