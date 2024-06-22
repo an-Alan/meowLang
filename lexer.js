@@ -24,6 +24,8 @@ export const TOKENS = {
   Lt: 'Lt',
   Lte: 'Lte',
   Plus: 'Plus',
+  PlusPlus: 'PlusPlus',
+  MinusMinus: 'MinusMinus',
   Minus: 'Minus',
   Asterisk: 'Asterisk',
   Slash: 'Slash',
@@ -42,9 +44,9 @@ export const KEYWORDS = {
   meeow: 'meeow',
   meeeow: 'meeeow',
   mmeeooww: 'mmeeooww', // Loops
-  if: 'if',
-  elif: 'elif',
-  else: 'else' // Conditionals
+  mrow: 'mrow',
+  mroow: 'mroow',
+  mroooww: 'mroooww' // Conditionals
 }
 
 export class Token {
@@ -135,30 +137,7 @@ export class Lexer {
           new Token(TOKENS.RightParen, ')', ')', this.line, this.column)
         )
       }
-      case "h": {
-        if (this.match('a')){
-          if (this.match('i')) {
-            if (this.match('i')) {
-              return this.tokens.push(
-                new Token(TOKENS.LeftBrace, "haii", "haii", this.line, this.column)
-              )
-            }
-          }
-        }
-        return
-      }
-      case "b": {
-        if (this.match('y')){
-          if (this.match('e')) {
-            if (this.match('e')) {
-              return this.tokens.push(
-                new Token(TOKENS.RightBrace, "byee", "byee", this.line, this.column)
-              )
-            }
-          }
-        }
-        return
-      }
+      
       case '[': {
         return this.tokens.push(
           new Token(TOKENS.LeftBracket, '[', '[', this.line, this.column)
@@ -206,6 +185,10 @@ export class Lexer {
         )
       }
       case '+': {
+        if(this.match('+'))
+          return this.tokens.push(
+            new Token(TOKENS.PlusPlus, '++', '++', this.line, this.column)
+        )
         return this.tokens.push(
           new Token(TOKENS.Plus, '+', '+', this.line, this.column)
         )
@@ -280,6 +263,16 @@ export class Lexer {
           let identifier = [char]
           while (isAlphanumeric(this.peek())) identifier.push(this.advance())
           identifier = identifier.join('')
+          if (identifier == 'haii') {
+            return this.tokens.push(
+              new Token(TOKENS.LeftBrace, "haii", "haii", this.line, this.column)
+            )
+          }
+          if (identifier == 'byee') {
+            return this.tokens.push(
+              new Token(TOKENS.RightBrace, "byee", "byee", this.line, this.column)
+            )
+          }
           if (Object.keys(KEYWORDS).includes(identifier))
             return this.tokens.push(
               new Token(

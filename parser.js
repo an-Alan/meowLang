@@ -266,7 +266,7 @@ export class Parser{
             this.eatKeyword(keyword)
 
             let condition = new Ast.Literal(true)
-            if (keyword != 'else') {
+            if (keyword != 'mroow') {
                 this.eat(TOKENS.LeftParen)
                 condition = this.expr()
                 this.eat(TOKENS.RightParen)
@@ -278,7 +278,7 @@ export class Parser{
             this.eat(TOKENS.RightBrace)
 
             let otherwise = []
-            while (this.peekKeyword('elif') || this.peekKeyword('else'))
+            while (this.peekKeyword('mroooww') || this.peekKeyword('mroow'))
                 otherwise.push(conditionalStmt(this.peek().value))
 
             return new Ast.Conditional(condition, body, otherwise)
@@ -324,8 +324,8 @@ export class Parser{
                     case 'mmeeooww': {
                         return whileStmt()
                     }
-                    case 'if': {
-                        return conditionalStmt('if')
+                    case 'mrow': {
+                        return conditionalStmt('mrow')
                     }
                     case 'meow': {
                         return assignStmt()

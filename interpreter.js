@@ -138,7 +138,7 @@ export class Interpreter {
             case Ast.Return:
                 throw new ReturnException(this.evaluate(node.value, scope))
             case Ast.While:{
-                while (this.execute(node.condition, scope)) this.run(node.body, scope)
+                while (this.evaluate(node.condition, scope)) this.run(node.body, scope)
                 break
             }
             case Ast.For: {

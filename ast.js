@@ -18,6 +18,10 @@ export class Var {
         this.name = name
         this.value = value
     }
+
+    add(num) {
+        this.value = this.value + num
+    }
 }
 
 export class Binary {

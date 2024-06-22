@@ -15,5 +15,6 @@ export default {
         if (min >= 0 && max <= 1) return Math.random()
         return Math.random() * (max - min + 1) + min
     },
-    round: number => Math.round(number)
+    round: number => Math.round(number),
+    addToVar: ([vari, val]) => {return vari + val}
 }
