@@ -16,5 +16,14 @@ export default {
         return Math.random() * (max - min + 1) + min
     },
     round: number => Math.round(number),
-    addToVar: ([vari, val]) => {return vari + val}
+    addToVar: ([vari, val]) => {return vari + val},
+    meows: () => {
+        let outs = "";
+        for (let i = 0; i < Math.random() * (100 - 20 + 1) + 20; i++){
+            outs = "";
+            for (let j = 0; j < Math.random() * (30 - 1 + 1) + 1; j++)
+                outs = outs + "meow "
+            console.log(outs)
+        }       
+    }
 }

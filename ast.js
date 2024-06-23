@@ -125,6 +125,15 @@ export class Unary {
     }
 }
 
+export class Changer {
+    constructor(variable, Add, valueT){
+        this.type = 'Changer'
+        this.variable = variable
+        this.Add = Add
+        this.valueT = valueT
+    }
+}
+
 export default {
     Literal,
     Array,
@@ -140,5 +149,6 @@ export default {
     Instance,
     Call,
     Get,
-    Unary
+    Unary,
+    Changer
 }

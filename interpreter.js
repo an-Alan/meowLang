@@ -100,6 +100,7 @@ export class Interpreter {
         switch(node.constructor) {
             case Ast.Var: {
                 scope[node.name] = this.evaluate(node.value, scope)
+                console.log(scope)
                 return scope
             }
             case Ast.Set: {

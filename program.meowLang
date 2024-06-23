@@ -1,11 +1,6 @@
-meow x meoow 3
+meow x meoow 2
+grrr("value is " + x)
+meow x meoow x + 2
 
-mrow (3 != 8) Meow
-    grrr("yep")
-meoW
 
-meow haiiiii meoow 234
-
-meow haiiiii meoow addToVar(haiiiii, 234)
-
-grrr(haiiiii)
+grrr("value is " + x)
