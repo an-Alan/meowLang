@@ -25,7 +25,9 @@ export const TOKENS = {
   Lte: 'Lte',
   Plus: 'Plus',
   PlusPlus: 'PlusPlus',
+  PlusEquiv: 'PlusEquiv',
   MinusMinus: 'MinusMinus',
+  MinusEquiv: 'MinusEquiv',
   Minus: 'Minus',
   Asterisk: 'Asterisk',
   Slash: 'Slash',
@@ -189,11 +191,23 @@ export class Lexer {
           return this.tokens.push(
             new Token(TOKENS.PlusPlus, '++', '++', this.line, this.column)
         )
+        if(this.match('='))
+          return this.tokens.push(
+            new Token(TOKENS.PlusEquiv, '+=', '+=', this.line, this.column)
+        )
         return this.tokens.push(
           new Token(TOKENS.Plus, '+', '+', this.line, this.column)
         )
       }
       case '-': {
+        if(this.match('-'))
+          return this.tokens.push(
+            new Token(TOKENS.MinusMinus, '--', '--', this.line, this.column)
+        )
+        if(this.match('='))
+          return this.tokens.push(
+            new Token(TOKENS.MinusEquiv, '-=', '-=', this.line, this.column)
+        )
         return this.tokens.push(
           new Token(TOKENS.Minus, '-', '-', this.line, this.column)
         )
@@ -263,14 +277,14 @@ export class Lexer {
           let identifier = [char]
           while (isAlphanumeric(this.peek())) identifier.push(this.advance())
           identifier = identifier.join('')
-          if (identifier == 'haii') {
+          if (identifier == 'Meow') {
             return this.tokens.push(
-              new Token(TOKENS.LeftBrace, "haii", "haii", this.line, this.column)
+              new Token(TOKENS.LeftBrace, "Meow", "Meow", this.line, this.column)
             )
           }
-          if (identifier == 'byee') {
+          if (identifier == 'meoW') {
             return this.tokens.push(
-              new Token(TOKENS.RightBrace, "byee", "byee", this.line, this.column)
+              new Token(TOKENS.RightBrace, "meoW", "meoW", this.line, this.column)
             )
           }
           if (Object.keys(KEYWORDS).includes(identifier))

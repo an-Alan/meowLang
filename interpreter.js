@@ -104,7 +104,7 @@ export class Interpreter {
             }
             case Ast.Set: {
                 if (!this.inScope(scope, node.caller))
-                    this.error('${node.caller} is not defined in current scope')
+                    this.error(node.caller + ' is not defined in current scope')
                 scope[node.caller][node.property] = this.evaluate(node.value, scope)
                 return scope
             }
@@ -113,7 +113,7 @@ export class Interpreter {
                     let instance = {}
                     for (let key of Object.keys(members)) {
                         if (!node.members.includes(key))
-                            this.error('Unexpected member ${key} found while creating isntance of ${node.name')
+                            this.error('Unexpected member ' +key + ' found while creating isntance of ' + node.name)
                         instance[key] = members[key]
                     }
                     return instance

@@ -1,9 +1,11 @@
 meow x meoow 3
 
-mrow (3 != 8) haii
+mrow (3 != 8) Meow
     grrr("yep")
-byee
+meoW
 
 meow haiiiii meoow 234
-haiiiii.add(2)
+
+meow haiiiii meoow addToVar(haiiiii, 234)
+
 grrr(haiiiii)

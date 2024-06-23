@@ -105,8 +105,6 @@ const writeFile = (location, data) =>
         }
 
         input.question('> ', repl)
-
-
     }
 })()
 
