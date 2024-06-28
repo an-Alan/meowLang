@@ -142,8 +142,12 @@ export class Parser{
             case TOKENS.Identifier: {
                 if (this.peekType() == TOKENS.PlusEquiv) {
                     this.eat(TOKENS.PlusEquiv)
-                    const valueT = this.expr()
-                    //return new Ast.Changer(token.value, 'Add', valueT)
+                    let val = this.eat(this.peekType())
+                    console.log(val)
+                    //console.log(peek())
+
+                    new Ast.Changer(token, token, val, '+')
+                    
                 }
                 return new Ast.Var(token.value)
             }

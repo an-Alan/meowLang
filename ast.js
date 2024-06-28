@@ -18,10 +18,6 @@ export class Var {
         this.name = name
         this.value = value
     }
-
-    add(num) {
-        this.value = this.value + num
-    }
 }
 
 export class Binary {
@@ -126,11 +122,12 @@ export class Unary {
 }
 
 export class Changer {
-    constructor(variable, Add, valueT){
+    constructor(variable, left, right, operator){
         this.type = 'Changer'
         this.variable = variable
-        this.Add = Add
-        this.valueT = valueT
+        this.left = left
+        this.right = right
+        this.operator = operator
     }
 }
 

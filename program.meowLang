@@ -1,6 +1,6 @@
 meow x meoow 2
-grrr("value is " + x)
-meow x meoow x + 2
 
+x + 2
 
-grrr("value is " + x)
+grrr(x)
+

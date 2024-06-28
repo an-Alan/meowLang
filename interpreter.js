@@ -98,9 +98,12 @@ export class Interpreter {
 
     execute(node, scope) {
         switch(node.constructor) {
+            case Ast.Changer: {
+                scope[node.name] = this.evaluate(node.value, scope)
+                return scope
+            }
             case Ast.Var: {
                 scope[node.name] = this.evaluate(node.value, scope)
-                console.log(scope)
                 return scope
             }
             case Ast.Set: {
