@@ -98,10 +98,6 @@ export class Interpreter {
 
     execute(node, scope) {
         switch(node.constructor) {
-            case Ast.Changer: {
-                scope[node.name] = this.evaluate(node.value, scope)
-                return scope
-            }
             case Ast.Var: {
                 scope[node.name] = this.evaluate(node.value, scope)
                 return scope
@@ -111,6 +107,18 @@ export class Interpreter {
                     this.error(node.caller + ' is not defined in current scope')
                 scope[node.caller][node.property] = this.evaluate(node.value, scope)
                 return scope
+            }
+            case Ast.Changer: {
+                if (node.opertor = '+') {
+                    let newVal = scope[node.name] + node.right.value
+                    scope[node.name] = newVal
+                    return scope 
+                } else if (node.opertor = '-') {
+                    let newVal = scope[node.name] - node.right.value
+                    scope[node.name] = newVal
+                    return scope 
+                }
+
             }
             case Ast.Struct: {
                 scope[node.name] = members => {

@@ -3,6 +3,9 @@ import { TOKENS } from "./lexer.js";
 import Ast from './ast.js'
 
 
+let catHappy = 100
+
+
 const isOp = type =>
     [
         TOKENS.Or,
@@ -142,12 +145,20 @@ export class Parser{
             case TOKENS.Identifier: {
                 if (this.peekType() == TOKENS.PlusEquiv) {
                     this.eat(TOKENS.PlusEquiv)
-                    let val = this.eat(this.peekType())
-                    console.log(val)
-                    //console.log(peek())
-
-                    new Ast.Changer(token, token, val, '+')
-                    
+                    let val = this.expr()
+                    return new Ast.Changer(token.value, val, '+')
+                }else if (this.peekType() == TOKENS.MinusEquiv) {
+                    this.eat(TOKENS.MinusEquiv)
+                    let val = this.expr()
+                    return new Ast.Changer(token.value, val, '-')
+                }else if (this.peekType() == TOKENS.PlusPlus) {
+                    this.eat(TOKENS.PlusPlus)
+                    let val = new Ast.Literal(1)
+                    return new Ast.Changer(token.value, val, '+')
+                }else if (this.peekType() == TOKENS.MinusMinus) {
+                    this.eat(TOKENS.MinusMinus)
+                    let val = new Ast.Literal(1)
+                    return new Ast.Changer(token.value, val, '-')
                 }
                 return new Ast.Var(token.value)
             }
@@ -350,7 +361,14 @@ export class Parser{
         }
     }
     parse() {
-        while (this.peekType() != TOKENS.EOF) this.ast.push(this.stmt())
+        while (this.peekType() != TOKENS.EOF && catHappy > 0){
+            this.ast.push(this.stmt())
+            catHappy -= (Math.random() *5)
+        }
+        if(catHappy < 0) {
+            console.log("the cat ate all your code...")
+        }
+        console.log("food left: " + catHappy)
         return this.ast
     }
 }

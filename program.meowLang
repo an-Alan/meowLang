@@ -1,6 +1,6 @@
-meow x meoow 2
+meow x meoow "hello"
 
-x + 2
+x += " there"
 
 grrr(x)
 

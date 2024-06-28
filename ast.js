@@ -122,10 +122,9 @@ export class Unary {
 }
 
 export class Changer {
-    constructor(variable, left, right, operator){
+    constructor(name, right, operator){
         this.type = 'Changer'
-        this.variable = variable
-        this.left = left
+        this.name = name
         this.right = right
         this.operator = operator
     }
