@@ -2,8 +2,13 @@ import { MeowError } from "./stdlib.js";
 import { TOKENS } from "./lexer.js";
 import Ast from './ast.js'
 
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms))
+//   }
 
-let catHappy = 100
+// async function feedThatCat(amm) {
+//     await sleep(2000)
+// }
 
 
 const isOp = type =>
@@ -42,6 +47,7 @@ export class Parser{
         this.tokens = tokens
         this.ast = []
         this.current = 0
+        this.catHappy = 100
     }
 
     error (token, msg) {
@@ -166,6 +172,14 @@ export class Parser{
                 const expr = this.expr()
                 this.eat(TOKENS.RightParen)
                 return expr
+            }
+            case TOKENS.Feed: {
+                this.eat(TOKENS.LeftParen)
+                this.eat(TOKENS.RightParen)
+                let amm = Math.random() * 15 + 3
+                //feedThatCat(amm)
+                this.catHappy += amm
+                return new Ast.Feeder("meow")
             }
         }
         this.error(token, "Expected expression but got " + token)
@@ -361,14 +375,14 @@ export class Parser{
         }
     }
     parse() {
-        while (this.peekType() != TOKENS.EOF && catHappy > 0){
+        while (this.peekType() != TOKENS.EOF && this.catHappy > 0){
             this.ast.push(this.stmt())
-            catHappy -= (Math.random() *5)
+            this.catHappy -= (Math.random() *5)
+            console.log("happiness: " + this.catHappy)
         }
-        if(catHappy < 0) {
+        if(this.catHappy < 0) {
             console.log("the cat ate all your code...")
         }
-        console.log("food left: " + catHappy)
         return this.ast
     }
 }

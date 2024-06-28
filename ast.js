@@ -130,6 +130,12 @@ export class Changer {
     }
 }
 
+export class Feeder {
+    constructor(yuh) {
+        this.yuh = yuh
+    }
+}
+
 export default {
     Literal,
     Array,
@@ -146,5 +152,6 @@ export default {
     Call,
     Get,
     Unary,
-    Changer
+    Changer,
+    Feeder
 }

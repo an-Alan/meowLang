@@ -31,6 +31,7 @@ export const TOKENS = {
   Minus: 'Minus',
   Asterisk: 'Asterisk',
   Slash: 'Slash',
+  Feed: 'Feed',
   EOF: 'EOF'
 }
 
@@ -48,7 +49,7 @@ export const KEYWORDS = {
   mmeeooww: 'mmeeooww', // Loops
   mrow: 'mrow',
   mroow: 'mroow',
-  mroooww: 'mroooww' // Conditionals
+  mroooww: 'mroooww', // Conditionals
 }
 
 export class Token {
@@ -285,6 +286,11 @@ export class Lexer {
           if (identifier == 'meoW') {
             return this.tokens.push(
               new Token(TOKENS.RightBrace, "meoW", "meoW", this.line, this.column)
+            )
+          }
+          if (identifier == 'feed') {
+            return this.tokens.push(
+              new Token(TOKENS.Feed, "feed", "feed", this.line, this.column)
             )
           }
           if (Object.keys(KEYWORDS).includes(identifier))

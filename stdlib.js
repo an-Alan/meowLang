@@ -1,3 +1,6 @@
+import { Parser } from './parser.js'
+
+
 export class MeowError extends Error{
     constructor(msg) {
         super()
@@ -25,5 +28,9 @@ export default {
                 outs = outs + "meow "
             console.log(outs)
         }       
+    // }, feed: () => {
+    //     let amm = (Math.random() * 15) + 1
+    //     Parser.feedThatCat(amm)
+    //     sleep(amm)
     }
 }
