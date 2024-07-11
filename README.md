@@ -59,3 +59,12 @@ the basic gist is:
 |   mroow  | if else|
 |  mroooww   | else|
 
+### While Loops
+
+### For Loops
+
+### Defining a function
+
+### Arrays/Lists
+
+
