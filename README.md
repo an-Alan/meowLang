@@ -61,9 +61,30 @@ the basic gist is:
 
 ### While Loops
 
+while loops are pretty simple you just need to type in `mmeeooww` instead of `while`
+
 ### For Loops
 
+for loops are a bit special since they take in the same conditionals as easel for loops
+
+it will be a range with the first starting number then it will go up to the end
+
+so not including the end
+
+example:
+
+```
+meeow i meeeow (0,4) Meow
+    grrr(i)
+meoW
+```
+
+this should output 0, 1, 2, 3
+
+
 ### Defining a function
+
+
 
 ### Arrays/Lists
 
