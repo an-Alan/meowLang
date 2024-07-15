@@ -8,6 +8,8 @@ a lot of credit goes to jc and hack club!
 
 the most noticeable of course is making it cat themed :3
 
+be sure to read But Wait! since itll have some information if your code just wont work since a mysterious cat ate it....
+
 
 ### Defining a Variable
 
@@ -90,6 +92,14 @@ mmeow adding mmmeow (a, b) Meow
 meoW
 ```
 
+can also have a function without params
+
+```
+mmeow hi Meow
+    grrr("hi")
+meoW
+```
+
 |  keyword| function |
 | -----: | ----- |
 |  mmeow   | signals new function|
@@ -98,13 +108,62 @@ meoW
 
 ### Arrays/Lists
 
-Since this is just basically easel made by jc but cattified
+`meow list meoow []` this creates a new list called list that is empty
 
-so this is simply just structs in easel
+you can the add to it by using `list.add("hi")`
+
+then you can access things inside a list as usual with `list[0]` that should return `"hi"`
+
+you can get the length by using `list.length`
+
+### Structs
+
+structs is used in easel but now its cat
+
+`meeoow fruit meeooow Meow apples, oranges, cherries meoW`
+
+this made the struct fruit with the different fuit inside it
+
+you can then assign values to the things inside with `meow fruit.apples meoow 3`
+
+we can then access it with `fruit.apples`
+
+you can also use a struct as a basic structure (haha i get it now)
+
+then make temporary versions of it and assign it to different places
+
+such as:
+
+```
+meeoow x meeooow Meow a, b, c meoW
+
+meow list meoow []
+
+list.add(meeeoow x(a: 3, b: 4, c: 5))
+
+grrr(list[0])
+```
+
+now list has a struct inside its first position
+
 
 ### Random stuff
 
-what the 
+i spent way too much time figuring out how to do this 
+
+but i can do this now
+
+```
+meow x meoow 5
+x += 5
+grrr(x)
+```
+
+outputs 10
+
+this also works with `++` and `--`
+
+and also `-=`
 
 ## But Wait!
 

@@ -176,7 +176,8 @@ export class Parser{
             case TOKENS.Mow: {
                 this.eat(TOKENS.LeftParen)
                 this.eat(TOKENS.RightParen)
-                return catHappy
+                let out = this.catHappy
+                return new Ast.Literal(out)
             }
         }
         this.error(token, "Expected expression but got " + token)
@@ -372,7 +373,7 @@ export class Parser{
         }
     }
     parse() {
-        while (this.peekType() != TOKENS.EOF && this.catHappy > 0){
+        while ((this.peekType() != TOKENS.EOF) && this.catHappy > 0){
             this.ast.push(this.stmt())
             this.catHappy -= (Math.random() *5)
         }

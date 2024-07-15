@@ -1,0 +1,23 @@
+~hehe im just gonna write out a leet code but in meowLang :3
+
+mmeow TwoSum mmmeow (nums, target) Meow
+    meeow i meeeow(0, nums.length - 1) Meow
+        grrr("hi")
+        meow e meoow i
+        grrr(e)
+        meeow j meeeow(e, nums.length) Meow
+            grrr("uhoh")
+            grrr(i + j)
+            mrow(nums[i] + nums[j] == target) Meow
+                meow out meoow [i, j]
+                prrr out
+            meoW
+        meoW
+    meoW
+    prrr "nah"
+meoW
+
+meow in meoow [2,1,3]
+meow targ meoow 5
+
+TwoSum(in, targ)
