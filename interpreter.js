@@ -79,8 +79,9 @@ export class Interpreter {
                     '||': (left,right) => left || right,
                     '+': (left,right) => left + right,
                     '-': (left,right) => left - right,
+                    '%': (left,right) => left % right,
                     '*': (left,right) => left * right,
-                    '/': (left,right) => left / right,
+                    '/': (left,right) => left / right
                 }
                 return operations[value.operator](
                     this.evaluate(value.left, scope),

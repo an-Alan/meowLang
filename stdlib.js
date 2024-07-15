@@ -1,4 +1,3 @@
-import { Parser } from './parser.js'
 
 
 export class MeowError extends Error{
@@ -27,5 +26,14 @@ export default {
                 outs = outs + "meow "
             console.log(outs)
         }       
+    },
+    catFindIt: (inS, inC) => {
+        let text = inS
+        for (let i = 0; i < inS.length; i++) {
+            if(text.charAt(i) == inC) {
+                return i
+            }
+        }
+        return -1
     }
 }

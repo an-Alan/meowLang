@@ -16,6 +16,7 @@ const isOp = type =>
         TOKENS.Lte,
         TOKENS.Plus,
         TOKENS.Minus,
+        TOKENS.Mod,
         TOKENS.Asterisk,
         TOKENS.Slash,
     ].includes(type)
@@ -31,6 +32,7 @@ const opOrder = {
     '||': 0,
     '+': 1,
     '-': 1,
+    '%': 1.5,
     '*': 2,
     '/': 2
 }

@@ -31,6 +31,7 @@ export const TOKENS = {
   Minus: 'Minus',
   Asterisk: 'Asterisk',
   Slash: 'Slash',
+  Mod: 'Mod',
   Feed: 'Feed',
   Mow: 'Mow',
   EOF: 'EOF'
@@ -222,6 +223,11 @@ export class Lexer {
       case '/': {
         return this.tokens.push(
           new Token(TOKENS.Slash, '/', '/', this.line, this.column)
+        )
+      }
+      case '%': {
+        return this.tokens.push(
+          new Token(TOKENS.Mod, '%', '%', this.line, this.column)
         )
       }
       case '~': {

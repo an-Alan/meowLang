@@ -1,0 +1,24 @@
+
+
+mmeow findIt mmmeow (stringIn, charIn) Meow 
+    meeow i meeeow (0, stringIn.length) Meow
+        grrr(stringIn[i])
+        mrow(stringIn[i] == charIn) Meow
+            prrr i
+        meoW
+    meoW
+    prrr false
+meoW
+
+
+
+
+meow letters meoow "abcdefghijklmnopqrstuvwxyz"
+meow plaintext meoow "hello there"
+meow key meoow 4
+meow out meoow ""
+
+
+grrr(letters[0])
+
+grrr(catFindIt(plaintext, "h"))
