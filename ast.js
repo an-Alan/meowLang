@@ -136,6 +136,12 @@ export class Feeder {
     }
 }
 
+export class Mower {
+    constructor(placeholder) {
+        this.placeholder = placeholder
+    }
+}
+
 export default {
     Literal,
     Array,
@@ -153,5 +159,6 @@ export default {
     Get,
     Unary,
     Changer,
-    Feeder
+    Feeder,
+    Mower
 }

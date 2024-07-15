@@ -32,6 +32,7 @@ export const TOKENS = {
   Asterisk: 'Asterisk',
   Slash: 'Slash',
   Feed: 'Feed',
+  Mow: 'Mow',
   EOF: 'EOF'
 }
 
@@ -291,6 +292,11 @@ export class Lexer {
           if (identifier == 'feed') {
             return this.tokens.push(
               new Token(TOKENS.Feed, "feed", "feed", this.line, this.column)
+            )
+          }
+          if (identifier == 'mow') {
+            return this.tokens.push(
+              new Token(TOKENS.Mow, "mow", "mow", this.line, this.column)
             )
           }
           if (Object.keys(KEYWORDS).includes(identifier))

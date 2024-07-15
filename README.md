@@ -84,8 +84,50 @@ this should output 0, 1, 2, 3
 
 ### Defining a function
 
+```
+mmeow adding mmmeow (a, b) Meow
+    prrr a + b
+meoW
+```
 
+|  keyword| function |
+| -----: | ----- |
+|  mmeow   | signals new function|
+|   mmmeow  | just filler behind keyword |
+|  prrr   | return |
 
 ### Arrays/Lists
+
+Since this is just basically easel made by jc but cattified
+
+so this is simply just structs in easel
+
+### Random stuff
+
+what the 
+
+## But Wait!
+
+This language is quirky :3
+
+remember you have to meow to the computer right?
+
+well the computer now thinks its a cat and needs to be fed
+
+you start out with `catHappy` set at 100
+
+then it goes down a random ammount ranging from 0 to 5 for every line of code the parser reads and executes
+
+BUT you can feed the cat with `feed()` that replenishes 3 to 15 happiness
+
+you can also get the current `catHappy` by using `mow()` which returns the int
+
+so you can print it out by using `grrr(mow())`
+
+hope you got to this part in the read me and remember to use the `feed()` function or the cat will eat your code!!!
+
+
+
+
 
 

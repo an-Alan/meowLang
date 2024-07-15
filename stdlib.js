@@ -14,12 +14,11 @@ export class MeowError extends Error{
 
 export default {
     grrr: args => console.log(...args),
-    random: ([min, max]) => {
+    randmeow: ([min, max]) => {
         if (min >= 0 && max <= 1) return Math.random()
         return Math.random() * (max - min + 1) + min
     },
     round: number => Math.round(number),
-    addToVar: ([vari, val]) => {return vari + val},
     meows: () => {
         let outs = "";
         for (let i = 0; i < Math.random() * (100 - 20 + 1) + 20; i++){
@@ -28,9 +27,5 @@ export default {
                 outs = outs + "meow "
             console.log(outs)
         }       
-    // }, feed: () => {
-    //     let amm = (Math.random() * 15) + 1
-    //     Parser.feedThatCat(amm)
-    //     sleep(amm)
     }
 }
