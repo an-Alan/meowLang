@@ -27,13 +27,48 @@ export default {
             console.log(outs)
         }       
     },
-    catFindIt: (inS, inC) => {
-        let text = inS
-        for (let i = 0; i < inS.length; i++) {
-            if(text.charAt(i) == inC) {
-                return i
+    catFind: ([inS, inC]) => {
+        let text = new String(inS);
+        let textn = new String(inC);
+        for (let i = 0; i < text.length; i++) {
+            if(text.charAt(i) == textn) {
+                return i;
             }
         }
-        return -1
+        return false;
+    },
+    catReplace: ([inS, inO, inN]) => {
+        let text = new String(inS)
+        let inOld = new String(inO)
+        let inNew = new String(inN)
+        return text.replace(inOld, inNew)
+    },
+    catReplaceAll: ([inS, inO, inN]) => {
+        let text = new String(inS)
+        let inOld = new String(inO)
+        let inNew = new String(inN)
+        return text.replaceAll(inOld, inNew)
+    },
+    meowupper: (inS) => {
+        let text = new String(inS)
+        return text.toUpperCase()
+    },
+    meowlower: (inS) => {
+        let text = new String(inS)
+        return text.toLowerCase()
+    },
+    meowclean: (inS) => {
+        let text = new String(inS)
+        text = text.toUpperCase()
+        console.log(text)
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let out = ""
+        for(let i = 0; i < text.length; i++) {
+            if (letters.indexOf(text.charAt(i)) == -1){
+                continue
+            }
+            out += text[i]
+        }
+        return out
     }
 }
