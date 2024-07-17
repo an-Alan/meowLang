@@ -60,7 +60,6 @@ export default {
     meowclean: (inS) => {
         let text = new String(inS)
         text = text.toUpperCase()
-        console.log(text)
         let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let out = ""
         for(let i = 0; i < text.length; i++) {

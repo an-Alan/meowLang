@@ -17,6 +17,7 @@ export const TOKENS = {
   Boolean: 'Boolean',
   Or: 'Or',
   Not: 'Not',
+  Equal: 'Equal',
   Equiv: 'Equiv',
   NotEquiv: 'NotEquiv',
   Gt: 'Gt',
@@ -131,6 +132,7 @@ export class Lexer {
           return this.tokens.push(
             new Token(TOKENS.Equiv, '==', '==', this.line, this.column)
           )
+        return this.tokens.push(new Token(TOKENS.Equal, '=', '=', this.line, this.column))
       }
       case '(': {
         return this.tokens.push(

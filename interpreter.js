@@ -22,7 +22,10 @@ export class Interpreter {
     }
 
     run(ast, scope) {
-        for (const node of ast) scope = this.execute(node, scope)
+        for (const node of ast) {
+            scope = this.execute(node, scope)
+            console.log(scope)
+        }
         return scope
     }
 
@@ -98,9 +101,11 @@ export class Interpreter {
     }
 
     execute(node, scope) {
+        console.log(node.constructor)
         switch(node.constructor) {
             case Ast.Var: {
-                scope[node.name] = this.evaluate(node.value, scope)
+                let newVal = node.value
+                scope[node.name] = this.evaluate(newVal, scope)
                 return scope
             }
             case Ast.Set: {
@@ -114,12 +119,17 @@ export class Interpreter {
                     let newVal = scope[node.name] + node.right.value
                     scope[node.name] = newVal
                     return scope 
-                } else if (node.opertor = '-') {
+                }
+                if (node.opertor = '-') {
                     let newVal = scope[node.name] - node.right.value
                     scope[node.name] = newVal
                     return scope 
                 }
-
+                if (node.operator = '=') {
+                    let newVal = node.right.value
+                    scope[node.name] = newVal
+                    return scope
+                }
             }
             case Ast.Struct: {
                 scope[node.name] = members => {
@@ -154,13 +164,13 @@ export class Interpreter {
                 while (this.evaluate(node.condition, scope)) this.run(node.body, scope)
                 break
             }
-            case Ast.For: {
+            case Ast.For: { 
                 let localScope = { ...scope, [node.id]: this.evaluate(node.range[0], scope) }
                 while (localScope[node.id] < this.evaluate(node.range[1], scope)){
                     this.run(node.body, localScope)
                     localScope[node.id]++
                 }
-                break
+                return localScope
             }
             case Ast.Conditional: {
                 if (this.evaluate(node.condition, scope)) this.run(node.body, scope)

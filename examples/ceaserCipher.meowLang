@@ -1,4 +1,14 @@
+meow letters meoow "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+meow key meoow 4
+meow in meoow "hi"
 
-grrr(meowclean("Wo3ie d))
+meow in meoow meowclean(in)
 
 
+meow out meoow ""
+meeow i meeeow (0, in.length) Meow 
+    meow place meoow catFind(letters, in[i]) + key
+    out = out + letters[place]
+meoW
+
+grrr(out)

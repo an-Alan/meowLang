@@ -144,19 +144,30 @@ export class Parser{
                 return new Ast.Array(items)
             }
             case TOKENS.Identifier: {
+                if (this.peekType() == TOKENS.Equal) {
+                    this.eat(TOKENS.Equal)
+                    let val = this.expr()
+                    return new Ast.Changer(token.value, val, '=')
+                }
                 if (this.peekType() == TOKENS.PlusEquiv) {
                     this.eat(TOKENS.PlusEquiv)
                     let val = this.expr()
+                    console.log("we got it")
+                    console.log(token.value)
+                    console.log(val)
                     return new Ast.Changer(token.value, val, '+')
-                }else if (this.peekType() == TOKENS.MinusEquiv) {
+                }
+                if (this.peekType() == TOKENS.MinusEquiv) {
                     this.eat(TOKENS.MinusEquiv)
                     let val = this.expr()
                     return new Ast.Changer(token.value, val, '-')
-                }else if (this.peekType() == TOKENS.PlusPlus) {
+                }
+                if (this.peekType() == TOKENS.PlusPlus) {
                     this.eat(TOKENS.PlusPlus)
                     let val = new Ast.Literal(1)
                     return new Ast.Changer(token.value, val, '+')
-                }else if (this.peekType() == TOKENS.MinusMinus) {
+                }
+                if (this.peekType() == TOKENS.MinusMinus) {
                     this.eat(TOKENS.MinusMinus)
                     let val = new Ast.Literal(1)
                     return new Ast.Changer(token.value, val, '-')
