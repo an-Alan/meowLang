@@ -10,6 +10,10 @@ the most noticeable of course is making it cat themed :3
 
 be sure to read But Wait! since itll have some information if your code just wont work since a mysterious cat ate it....
 
+anyways heres a video
+
+[![asciicast](https://asciinema.org/a/VHYIf8TtPgA7VEMOw5CqMs1UD.svg)](https://asciinema.org/a/VHYIf8TtPgA7VEMOw5CqMs1UD)
+
 
 ### Defining a Variable
 

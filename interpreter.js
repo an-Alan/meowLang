@@ -24,7 +24,6 @@ export class Interpreter {
     run(ast, scope) {
         for (const node of ast) {
             scope = this.execute(node, scope)
-            console.log(scope)
         }
         return scope
     }
@@ -101,7 +100,6 @@ export class Interpreter {
     }
 
     execute(node, scope) {
-        console.log(node.constructor)
         switch(node.constructor) {
             case Ast.Var: {
                 let newVal = node.value
@@ -116,19 +114,14 @@ export class Interpreter {
             }
             case Ast.Changer: {
                 if (node.opertor = '+') {
-                    let newVal = scope[node.name] + node.right.value
+                    let newVal = scope[node.name] + this.evaluate(node.right, scope)
                     scope[node.name] = newVal
                     return scope 
                 }
                 if (node.opertor = '-') {
-                    let newVal = scope[node.name] - node.right.value
+                    let newVal = scope[node.name] - this.evaluate(node.right, scope)
                     scope[node.name] = newVal
                     return scope 
-                }
-                if (node.operator = '=') {
-                    let newVal = node.right.value
-                    scope[node.name] = newVal
-                    return scope
                 }
             }
             case Ast.Struct: {

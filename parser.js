@@ -147,14 +147,11 @@ export class Parser{
                 if (this.peekType() == TOKENS.Equal) {
                     this.eat(TOKENS.Equal)
                     let val = this.expr()
-                    return new Ast.Changer(token.value, val, '=')
+                    return new Ast.Var(token.value, val)
                 }
                 if (this.peekType() == TOKENS.PlusEquiv) {
                     this.eat(TOKENS.PlusEquiv)
                     let val = this.expr()
-                    console.log("we got it")
-                    console.log(token.value)
-                    console.log(val)
                     return new Ast.Changer(token.value, val, '+')
                 }
                 if (this.peekType() == TOKENS.MinusEquiv) {
